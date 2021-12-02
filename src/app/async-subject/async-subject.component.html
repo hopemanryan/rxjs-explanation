@@ -1,0 +1,30 @@
+<h4>Async pipe with subject</h4>
+<h5>ngIf Subject</h5>
+<div *ngIf="simpleSubject | async as subject">
+    {{subject}}
+</div>
+
+<button (click)="submit()">show data with ngIf</button>
+
+<h5>Ngfor subject</h5>
+<div *ngFor="let item of arraySimpleSubject | async">
+    {{item}}
+</div>
+<button (click)="submit2()">show data with ngFor</button>
+
+
+<h5>ngIf with multiple asyncs </h5>
+<div *ngIf="{sub1: sub1$ | async , sub2: sub2$ | async } as subs">
+    <div *ngIf="subs.sub1 && subs.sub2">
+        <div>
+            sub1: {{subs.sub1}}
+        </div>
+        <div>
+            sub2: {{subs.sub2}}
+        </div>
+    </div>
+
+</div>
+
+<button (click)="submit3()">load first subject</button>
+<button (click)="submit4()">load second subject</button>
